@@ -60,5 +60,43 @@ let urls = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgIjuFWeUo4J
    });
 
    // ex5
-   
+   const lista2 = document.getElementById("lista2");
+   const txtnome = document.getElementById("txtnome");
+   const inserir = document.getElementById("btn-inserir");
+   const indice = document.getElementById("indice");
 
+   inserir.addEventListener("click", () =>{
+     const newli = document.createElement("li");
+     const value = txtnome.value;
+     newli.textContent = value;
+     const posicao = lista2.children[indice.value];
+     if(posicao){
+       lista2.insertBefore(newli, posicao);
+     }
+     else{
+       lista2.appendChild(newli);
+     }
+   });
+   
+   // ex6
+   const quiz = document.getElementById("quiz");
+   const destacar = document.getElementById("destacar");
+   const alternativas = ["A","B","C"];
+   let selecao = null;
+   for(let i = 0; i<alternativas.length;i++){
+   const btnAlternativas = document.createElement("button");
+   btnAlternativas.textContent = alternativas[i];
+   quiz.appendChild(btnAlternativas);
+   
+   
+   btnAlternativas.addEventListener("click", () =>{
+    if (selecao) {
+      selecao.style.backgroundColor = ""; 
+    }
+      selecao = btnAlternativas;
+      selecao.style.backgroundColor = "lightgreen";
+   });
+   destacar.addEventListener("click", () =>{
+      
+   });
+  }
